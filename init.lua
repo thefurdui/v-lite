@@ -8,3 +8,19 @@ vim.opt.smartindent = true      -- Smart auto-indenting
 vim.opt.ignorecase = true       -- Case-insensitive searching
 vim.opt.smartcase = true        -- ...unless you type a capital letter
 vim.opt.cursorline = true       -- Highlight the current line
+
+-- OSC 52 Clipboard integration
+vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+        ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+        ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    },
+}
+
+-- Make yank default to the system clipboard
+vim.opt.clipboard = "unnamedplus"
