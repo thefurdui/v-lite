@@ -24,3 +24,7 @@ vim.g.clipboard = {
 
 -- Make yank default to the system clipboard
 vim.opt.clipboard = "unnamedplus"
+
+-- Set up One Dark Pro theme
+require("onedarkpro").setup()
+vim.cmd("colorscheme onedark_vivid")
